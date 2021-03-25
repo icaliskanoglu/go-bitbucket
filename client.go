@@ -36,6 +36,7 @@ func apiBaseUrl() string {
 
 type Client struct {
 	Auth         *auth
+	Base         base
 	Users        users
 	User         user
 	Teams        teams
@@ -151,6 +152,7 @@ func injectClient(a *auth) *Client {
 	c.User = &User{c: c}
 	c.Teams = &Teams{c: c}
 	c.Workspaces = &Workspace{c: c, Repositories: c.Repositories, Permissions: &Permission{c: c}}
+	c.Base = &Base{c: c}
 	c.HttpClient = new(http.Client)
 	return c
 }

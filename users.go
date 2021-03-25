@@ -10,12 +10,6 @@ func (u *Users) Get(t string) (interface{}, error) {
 	return u.c.execute("GET", urlStr, "")
 }
 
-func (c *Client) Get(t string) (interface{}, error) {
-
-	urlStr := c.GetApiBaseURL() + "/users/" + t + "/"
-	return c.execute("GET", urlStr, "")
-}
-
 func (u *Users) Followers(t string) (interface{}, error) {
 
 	urlStr := u.c.GetApiBaseURL() + "/users/" + t + "/followers"
